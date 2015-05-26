@@ -367,7 +367,8 @@ bool lightBlocked(VECTOR src, VECTOR dir) {
 
 	float t;
 
-	src = add(src, multiply(dir, 0.00001));
+	// offset to prevent intersection rounded errors
+	src = add(src, multiply(dir, 0.0001));
 
 	// go through all the geo
 	for (i = 0; i < geo_count; i++) {
